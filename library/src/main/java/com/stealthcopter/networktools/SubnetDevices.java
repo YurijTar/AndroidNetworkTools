@@ -197,7 +197,6 @@ public class SubnetDevices {
 
             }
         }).start();
-
         return this;
     }
 
@@ -228,7 +227,7 @@ public class SubnetDevices {
                         device.time = pingResult.timeTaken;
                         subnetDeviceFound(device);
                     }
-                    
+
             } catch (UnknownHostException e) {
                 e.printStackTrace();
             }
