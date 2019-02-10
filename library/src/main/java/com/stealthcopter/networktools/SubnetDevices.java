@@ -221,17 +221,13 @@ public class SubnetDevices {
             try {
                 InetAddress ia = InetAddress.getByName(address);
                 PingResult pingResult = Ping.onAddress(ia).setTimeOutMillis(timeOutMillis).doPing();
-                if (pingResult.isReachable) {
-                    Device device = new Device(ia);
-
                     // Add the device MAC address if it is in the cache
                     if (ipMacHashMap.containsKey(ia.getHostAddress())) {
+                        Device device = new Device(ia);
                         device.mac = ipMacHashMap.get(ia.getHostAddress());
+                        device.time = pingResult.timeTaken;
+                        subnetDeviceFound(device);
                     }
-
-                    device.time = pingResult.timeTaken;
-                    subnetDeviceFound(device);
-                }
             } catch (UnknownHostException e) {
                 e.printStackTrace();
             }
