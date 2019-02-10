@@ -86,13 +86,10 @@ public class SubnetDevices {
             }
         }
 
+        if(subnetDevice != null){}
+
         return subnetDevice;
 
-
-
-
-
-        
     }
 
 
