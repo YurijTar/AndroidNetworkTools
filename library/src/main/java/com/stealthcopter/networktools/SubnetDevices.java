@@ -194,7 +194,6 @@ public class SubnetDevices {
 
 
                 listener.onFinished(devicesFound);
-
             }
         }).start();
         return this;
